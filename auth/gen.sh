@@ -1,10 +1,12 @@
 #!/bin/env bash
 
-pushd htpasswd-img
+set -e
+
+pushd htpasswd-img || exit
 
 docker build -t htpasswd .
 
-popd
+popd || exit
 
 read -p "Enter registry user: " user
 echo
